@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two-factor verification | SecureDesk</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="auth-layout">
+    <main class="auth-panel">
+        <a class="brand" href="/login.html"><span class="brand-mark">S</span><span>SecureDesk</span></a>
+        <div class="auth-content">
+            <p class="eyebrow">ACCOUNT SECURITY</p>
+            <h1>Verify it's you.</h1>
+            <p class="subtitle">Enter a six-digit authenticator code, or use a recovery code if you cannot access your authenticator.</p>
+            <div id="totpSetupPanel" class="totp-setup hidden" aria-live="polite">
+                <img id="totpQrCode" alt="Authenticator QR code" />
+                <p>Scan this QR code in Google Authenticator, Authy, or another TOTP app.</p>
+            </div>
+            <form id="verifyForm">
+                <div class="input-group">
+                    <label for="code">Authenticator or recovery code</label>
+                    <input id="code" name="code" type="text" autocomplete="one-time-code" maxlength="39" placeholder="000000 or XXXX-XXXX-…-XXXX" required>
+                </div>
+                <div id="errorMessage" class="error-message" role="alert" aria-live="polite"></div>
+                <button class="primary-button" type="submit">Verify and continue</button>
+            </form>
+            <section id="recoveryCodesPanel" class="totp-setup hidden" aria-live="polite">
+                <h2>Save your recovery codes</h2>
+                <p>Each code works once. Store these somewhere private; they will not be shown again.</p>
+                <pre id="recoveryCodesList"></pre>
+                <button id="copyRecoveryCodes" class="secondary-button" type="button">Copy recovery codes</button>
+                <button id="continueAfterRecoveryCodes" class="primary-button" type="button">I've saved them — continue</button>
+            </section>
+            <button id="resendCode" class="text-button hidden" type="button" disabled>Send a new code in <span id="resendCountdown">60</span>s</button>
+            <div class="divider"><span>Having trouble?</span></div>
+            <a href="/login.html" class="secondary-button">Return to sign in</a>
+        </div>
+        <p class="footer-text">© 2026 SecureDesk</p>
+    </main>
+    <aside class="visual-panel"><div class="visual-card"><div class="visual-top"><span class="status-dot"></span><span>Extra protection enabled</span></div><h2>One more<br>step.</h2><p>A short-lived code from your authenticator app helps confirm it’s really you signing in.</p></div></aside>
+</div>
+<script src="js/errors.js" defer></script>
+<script src="js/verify-2fa.js" defer></script>
+</body>
+</html>

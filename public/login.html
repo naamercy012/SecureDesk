@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In | SecureDesk</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="auth-layout">
+    <main class="auth-panel">
+        <a class="brand" href="/login.html" aria-label="SecureDesk home">
+            <span class="brand-mark">S</span>
+            <span>SecureDesk</span>
+        </a>
+
+        <div class="auth-content">
+            <p class="eyebrow">ACCOUNT ACCESS</p>
+            <h1>Welcome back.</h1>
+            <p class="subtitle">Sign in with your username, password, and authenticator code.</p>
+
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input id="username" name="username" type="text" placeholder="Your username" autocomplete="username" minlength="3" maxlength="32" required>
+                </div>
+
+                <div class="input-group">
+                    <div class="label-row">
+                        <label for="password">Password</label>
+                        <a class="forgot-link" href="/forgot-password.html">Forgot password?</a>
+                    </div>
+                    <div class="password-input">
+                        <input id="password" name="password" type="password" placeholder="Enter your password" autocomplete="current-password" required>
+                        <button type="button" id="togglePassword" aria-controls="password" aria-pressed="false">Show</button>
+                    </div>
+                </div>
+
+                <div id="errorMessage" class="error-message" role="alert" aria-live="polite"></div>
+                <button type="submit" class="primary-button">Sign in</button>
+            </form>
+
+            <div class="divider"><span>New here?</span></div>
+            <a href="/register.html" class="secondary-button">Create an account</a>
+        </div>
+
+        <p class="footer-text">© 2026 SecureDesk</p>
+    </main>
+
+    <aside class="visual-panel" aria-label="SecureDesk security information">
+        <div class="visual-card">
+            <div class="visual-top"><span class="status-dot"></span><span>System secure</span></div>
+            <h2>Your work,<br>protected.</h2>
+            <p>Secure authentication, thoughtful access controls and two-factor protection—designed to keep your work yours.</p>
+            <div class="trust-note">
+                <span class="trust-icon" aria-hidden="true">✓</span>
+                <span>Protected by design. Ready when you are.</span>
+            </div>
+        </div>
+    </aside>
+</div>
+<script src="js/errors.js" defer></script>
+<script src="js/login.js" defer></script>
+</body>
+</html>

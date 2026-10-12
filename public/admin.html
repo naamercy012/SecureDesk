@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin | SecureDesk</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="account-body">
+<main class="account-card admin-card" data-required-role="admin">
+    <a class="brand" href="/admin.html"><span class="brand-mark">S</span><span>SecureDesk</span></a>
+    <p class="eyebrow">ADMINISTRATOR</p>
+    <h1>Welcome, <span id="welcomeUsername">admin</span>.</h1>
+    <p class="subtitle">Review account metadata and recent system activity.</p>
+    <dl class="account-details">
+        <div><dt>Email address</dt><dd id="accountEmail">Loading…</dd></div>
+        <div><dt>Account role</dt><dd id="accountRole">Loading…</dd></div>
+        <div><dt>Last seen</dt><dd id="lastSeenAt">Loading…</dd></div>
+    </dl>
+    <section class="activity-section" aria-labelledby="activityHeading">
+        <h2 id="activityHeading">Your recent activity</h2>
+        <p id="activityMessage" class="subtitle">Loading recent activity…</p>
+        <ul id="activityList" class="activity-list"></ul>
+    </section>
+    <section class="activity-section" aria-labelledby="sessionsHeading">
+        <h2 id="sessionsHeading">Signed-in devices</h2>
+        <p id="sessionsMessage" class="subtitle" aria-live="polite">Loading signed-in devices…</p>
+        <ul id="sessionsList" class="sessions-list"></ul>
+        <button id="signOutOtherDevices" class="secondary-button session-revoke-all" type="button">Sign out other devices</button>
+    </section>
+    <section class="admin-section" aria-labelledby="usersHeading">
+        <h2 id="usersHeading">Accounts</h2>
+        <p id="usersMessage" class="subtitle" aria-live="polite">Loading account data…</p>
+        <div class="admin-table-wrap">
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th scope="col">Username</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Role</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">2FA</th>
+                        <th scope="col">Last seen</th>
+                        <th scope="col">Created</th>
+                    </tr>
+                </thead>
+                <tbody id="usersTableBody"></tbody>
+            </table>
+        </div>
+        <div class="admin-pagination">
+            <button id="usersPrevious" class="secondary-button" type="button">Previous</button>
+            <span id="usersPage">Page 1</span>
+            <button id="usersNext" class="secondary-button" type="button">Next</button>
+        </div>
+    </section>
+    <section class="admin-section" aria-labelledby="logsHeading">
+        <h2 id="logsHeading">Audit logs</h2>
+        <p id="logsMessage" class="subtitle" aria-live="polite">Loading audit logs…</p>
+        <div class="admin-table-wrap">
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th scope="col">Time</th>
+                        <th scope="col">Account</th>
+                        <th scope="col">Event</th>
+                        <th scope="col">Request</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">IP address</th>
+                        <th scope="col">User agent</th>
+                    </tr>
+                </thead>
+                <tbody id="logsTableBody"></tbody>
+            </table>
+        </div>
+        <div class="admin-pagination">
+            <button id="logsPrevious" class="secondary-button" type="button">Previous</button>
+            <span id="logsPage">Page 1</span>
+            <button id="logsNext" class="secondary-button" type="button">Next</button>
+        </div>
+    </section>
+    <p id="accountError" class="error-message" role="alert" aria-live="polite"></p>
+    <button id="logoutButton" class="primary-button" type="button">Sign out</button>
+</main>
+<script src="js/errors.js" defer></script>
+<script src="js/admin.js" defer></script>
+<script src="js/sessions.js" defer></script>
+</body>
+</html>

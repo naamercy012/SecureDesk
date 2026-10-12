@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your account | SecureDesk</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="account-body">
+<main class="account-card" data-required-role="user">
+    <a class="brand" href="/dashboard.html"><span class="brand-mark">S</span><span>SecureDesk</span></a>
+    <p class="eyebrow">ACCOUNT OVERVIEW</p>
+    <h1>Welcome, <span id="welcomeUsername">there</span>.</h1>
+    <p class="subtitle">Your SecureDesk account is ready.</p>
+    <dl class="account-details">
+        <div><dt>Email address</dt><dd id="accountEmail">Loading…</dd></div>
+        <div><dt>Account role</dt><dd id="accountRole">Loading…</dd></div>
+        <div><dt>Last seen</dt><dd id="lastSeenAt">Loading…</dd></div>
+    </dl>
+    <section class="activity-section" aria-labelledby="activityHeading">
+        <h2 id="activityHeading">Recent account activity</h2>
+        <p id="activityMessage" class="subtitle">Loading recent activity…</p>
+        <ul id="activityList" class="activity-list"></ul>
+    </section>
+    <section class="activity-section" aria-labelledby="sessionsHeading">
+        <h2 id="sessionsHeading">Signed-in devices</h2>
+        <p id="sessionsMessage" class="subtitle" aria-live="polite">Loading signed-in devices…</p>
+        <ul id="sessionsList" class="sessions-list"></ul>
+        <button id="signOutOtherDevices" class="secondary-button session-revoke-all" type="button">Sign out other devices</button>
+    </section>
+    <p id="accountError" class="error-message" role="alert" aria-live="polite"></p>
+    <button id="logoutButton" class="primary-button" type="button">Sign out</button>
+</main>
+<script src="js/errors.js" defer></script>
+<script src="js/account.js" defer></script>
+<script src="js/sessions.js" defer></script>
+</body>
+</html>
