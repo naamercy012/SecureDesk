@@ -12,6 +12,12 @@
 
 The server connects directly to Supabase PostgreSQL with the `pg` driver; it does not use the Supabase browser client. Keep the database connection string private and never put it in frontend code or commit `.env`.
 
+## Deploying to Vercel
+
+Import the repository into Vercel with the repository root as the project root. The root `index.js` exports the Express app for Vercel, and `vercel.json` routes `/` to the static login page in `public/`. Vercel serves files in `public/` directly; Express serves those files locally during development.
+
+In the Vercel project settings, add the production environment variables `DATABASE_URL`, `DATABASE_SSL`, `SESSION_SECRET`, `PASSWORD_PEPPER`, and `APP_BASE_URL`. Use `DATABASE_SSL=true`, a public HTTPS origin for `APP_BASE_URL`, and different random values of at least 32 characters for `SESSION_SECRET` and `PASSWORD_PEPPER`. Add the `EMAIL_HOST`, `EMAIL_PORT`, `EMAIL_SECURE`, `EMAIL_USER`, `EMAIL_PASS`, and `EMAIL_FROM` variables to enable password-reset email. Redeploy after changing environment variables. Keep `.env` out of Git and configure secrets in Vercel's project settings.
+
 ## Required TOTP verification
 
 Registration requires a unique username, email address, and password. Sign-in uses the username and password. After registration, the app generates a TOTP secret and returns a QR code that must be scanned with a TOTP authenticator app such as Google Authenticator or Authy. Every sign-in requires a valid six-digit TOTP code or a one-time recovery code before the user is authenticated.

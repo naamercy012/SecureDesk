@@ -154,11 +154,13 @@ app.use(activityAudit);
 STATIC FRONTEND
 */
 
-app.use(
-    express.static(
-        path.join(__dirname, "../../public")
-    )
-);
+if (process.env.VERCEL !== "1") {
+    app.use(
+        express.static(
+            path.join(__dirname, "../../public")
+        )
+    );
+}
 
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "../../public/login.html"));
@@ -289,9 +291,12 @@ SERVER
 const PORT =
     process.env.PORT || 3000;
 
-app.listen(PORT, () => {
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(
+            `Server running at http://localhost:${PORT}`
+        );
+    });
+}
 
-    console.log(
-        `Server running at http://localhost:${PORT}`
-    );
-});
+module.exports = app;
